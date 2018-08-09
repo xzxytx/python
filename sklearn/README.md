@@ -52,3 +52,6 @@ clf = joblib.load('filename.pkl')  # 取
 **注意：** pickle（和通过扩展的 joblib），在安全性和可维护性方面存在一些问题。 有以下原因
 * 未经pickle信任的数据，可能会执行恶意代码
 * 虽然模型可以在其他版本加载，但可能产生意想不到的结果
+
+### 规定
+http://sklearn.apachecn.org/cn/0.19.0/tutorial/basic/tutorial.html#id18
