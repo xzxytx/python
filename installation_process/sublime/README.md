@@ -1,5 +1,5 @@
 * [Sublime](#Sublime)
-      * [1 使用Sublime Text 3进行Markdown 编辑+实时预览](#1-使用Sublime-Text-3进行Markdown-编辑+实时预览)
+* [1 使用Sublime Text 3进行Markdown 编辑+实时预览](#1-使用Sublime-Text-3进行Markdown-编辑+实时预览)
 
 
 ## Sublime
