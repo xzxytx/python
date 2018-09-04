@@ -60,4 +60,19 @@ array([ 0.  ,  0.25,  0.5 ,  0.75,  1.  ,  1.25,  1.5 ,  1.75,  2.  ])
 array, zeros, zeros_like, ones, ones_like, empty, empty_like, arange, linspace, numpy.random.rand, numpy.random.randn, fromfunction, fromfile
 
 
+### 打印数组
+```python
+>>> a = np.arange(6)  # 一维
+>>> print(a)
+
+>>> b = np.arange(12).reshape(4, 3)  # 二维
+>>> print(b)
+
+>>> c = np.arange(24).reshape(2, 3, 4)  # 三维
+>>> print(c)
+
+# 设置强制打印整个数组， 开启只需要输入具体值
+>>> np.set_printoptions(threshold=np.nan)
+```
+
 参考：https://www.numpy.org.cn/user_guide/quickstart_tutorial/the_basics.html
