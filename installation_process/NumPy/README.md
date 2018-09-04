@@ -75,4 +75,16 @@ array, zeros, zeros_like, ones, ones_like, empty, empty_like, arange, linspace, 
 >>> np.set_printoptions(threshold=np.nan)
 ```
 
+### 基本操作
+数组运算
+```python
+>>> a = np.array([20, 30, 40, 50])
+>>> b = np.arange(4)
+
+>>> a-b
+>>> b**2
+>>> 10*np.sin(a)
+>>> a<35
+```
+
 参考：https://www.numpy.org.cn/user_guide/quickstart_tutorial/the_basics.html
