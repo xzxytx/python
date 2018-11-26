@@ -42,3 +42,6 @@ url = "https://httpbin.org/get?show_env=1"
 browser.get(url)
 browser.quit()
 ```
+
+### fromkeys()  统一对键设置值， 去重
+{}.fromkeys(('x','y'), -1)
