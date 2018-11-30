@@ -7,11 +7,13 @@
 - 生效.bashrc文件： source ~/.bashrc
 - 
 
+#### CentOS安装pip
+- sudo yum -y install epel-release
+- sudo yum -y install python-pip
 
 #### Linux下载rz sz
 - yum install -y lrzsz
 - apt-get install lrzsz
-
 
 #### Linux下载火狐浏览器
 - 命令下载：
@@ -50,13 +52,13 @@
 
 - ERROR:
 	- ...Could not connect to display...Aborted...
-		- 打开： vi /etc/profile.d/aliases.sh
+		- 打开： sudo vi /etc/profile.d/aliases.sh
 		- 添加： 
 			- #!/bin/bash  
 			- alias phantomjs="xvfb-run phantomjs"
 		- 执行： source /etc/profile && phantomjs
 	- Service phantomjs unexpectedly exited. Status code was: -6
-		- ```python
+		- ```python3
 			from selenium import webdriver  
 			from pyvirtualdisplay import Display  
 			display = Display(visible=0, size=(800,600))  
@@ -68,17 +70,46 @@
 - 注意：
 	- 依赖包： sudo apt install xvfb
 
-# 未成功
-#### 谷歌
+#### Linux下载谷歌
 - 下载网站： https://www.google.com/chrome/
-	- wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-- 依赖： sudo apt-get -f install
-- 安装： sudo dpkg -i 文件
+- 安装：
+	- Ubuntu安装：
+	    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        - 依赖： sudo apt-get -f install
+        - 安装： sudo dpkg -i 文件
+    - CentOS安装：
+		- 打开： sudo vi /etc/yum.repos.d/google-chrome.repo
+		- 写入```
+			[google-chrome]
+			name=google-chrome
+			baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch
+			enabled=1
+			gpgcheck=1
+			gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+			```
+		- 安装： sudo yum -y install google-chrome-stable --nogpgcheck
+
 - ChromeDriver下载地址： https://sites.google.com/a/chromium.org/chromedriver/downloads
-	- 例： wget https://chromedriver.storage.googleapis.com/2.44/chromedriver_win32.zip
+	- 例： wget https://chromedriver.storage.googleapis.com/2.44/chromedriver_linux64.zip
 - 解压： unzip 文件
 - 移动到： /usr/bin
 
-- chrome的chromedriver网址：
-	- http://npm.taobao.org/mirrors/chromedriver/
-	- http://chromedriver.storage.googleapis.com/index.html
+- ERROR:
+	- ERROR: ... wrong permissions .... 解决： sudo chmod 777 chromedriver
+	- ERROR: ... DevToolsActivePort file doesn't exist ....
+		- ```python
+		 	from selenium import webdriver
+		 	from selenium.webdriver.chrome.options import Options
+			chrome_options = Options()
+			chrome_options.add_argument("--headless")
+			# chrome_options.add_argument('--no-sandbox')
+			driver = webdriver.Chrome(options=chrome_options)
+			# driver = webdriver.Chrome(chrome_options=chrome_options)
+			driver.set_page_load_timeout(300)
+			driver.set_script_timeout(300)
+			driver.get('http://www.baidu.com')
+	 		```
+
+# 未成功
+
+
